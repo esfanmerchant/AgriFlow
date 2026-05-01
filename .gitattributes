@@ -1,0 +1,43 @@
+# Auto-normalize line endings for all text files committed to the repo.
+# Stops the "every file changed" diff that happens when Windows CRLF and
+# *nix LF developers collaborate on the same project.
+* text=auto eol=lf
+
+# Explicit text — always LF
+*.js     text eol=lf
+*.jsx    text eol=lf
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.css    text eol=lf
+*.html   text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.sql    text eol=lf
+*.svg    text eol=lf
+
+# Explicit binary — never normalize
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.webp   binary
+*.avif   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.eot    binary
+*.pdf    binary
+*.glb    binary
+*.gltf   binary
+*.hdr    binary
+*.exr    binary
+*.zip    binary
+*.tar.gz binary
+
+# GitHub linguist — exclude legacy + auto-generated from "% language" stats
+legacy/* linguist-vendored
+package-lock.json linguist-generated

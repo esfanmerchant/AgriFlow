@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmer Dashboard — AgriFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="dash-wrap">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C7 12 4 9 4 4c5 0 8 3 8 8z"/><path d="M12 12c5 0 8-3 8-8-5 0-8 3-8 8z"/></svg>
+        </span>
+        AgriFlow
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="#" class="sidebar-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+          Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
+          Marketplace
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h6l2 4h10v12H3z"/></svg>
+          My Orders
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          Reviews
+        </a>
+
+        <div class="sidebar-section-label" style="margin-top:1.5rem;">Account</div>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+          Profile
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar" data-session-initial>F</div>
+          <div>
+            <div class="name" data-session-name>Farmer</div>
+            <div class="role" data-session-role>Farmer</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-block" data-logout style="color:rgba(255,255,255,0.85);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          Sign out
+        </button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Welcome back, <span data-session-name>Farmer</span> 👋</h1>
+          <div class="greet">Here's what's available in the marketplace today.</div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center;">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input placeholder="Search fertilizers, seeds, tools..." />
+          </div>
+          <button class="icon-btn" title="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg>
+            <span class="badge-dot"></span>
+          </button>
+          <button class="icon-btn" title="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Stat cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Active Orders</div>
+                <div class="stat-value">4</div>
+                <div class="stat-trend up">▲ 2 since last week</div>
+              </div>
+              <div class="stat-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h6l2 4h10v12H3z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Total Spent</div>
+                <div class="stat-value">Rs 84,200</div>
+                <div class="stat-trend up">▲ 12% this month</div>
+              </div>
+              <div class="stat-icon gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Saved Suppliers</div>
+                <div class="stat-value">12</div>
+                <div class="stat-trend up">▲ 3 new this week</div>
+              </div>
+              <div class="stat-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Pending Payments</div>
+                <div class="stat-value">Rs 11,500</div>
+                <div class="stat-trend down">1 invoice due</div>
+              </div>
+              <div class="stat-icon red">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marketplace + Side panel -->
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Marketplace — Live Stock</h3>
+              <select class="form-select" style="width:auto;padding:0.5rem 0.75rem;">
+                <option>All categories</option>
+                <option>Fertilizers</option>
+                <option>Pesticides</option>
+                <option>Seeds</option>
+                <option>Farm Tools</option>
+                <option>Irrigation</option>
+              </select>
+            </div>
+            <div class="panel-body">
+              <div class="product-grid">
+                <article class="product-card">
+                  <div class="product-image">🌾<span class="stock-pill in">248 in stock</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Fertilizers · Nitrogen</div>
+                    <div class="product-name">Urea (46% N) — 50kg</div>
+                    <div class="rating">★★★★★ <span class="text-muted" style="font-size:0.75rem;">(4.8)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 4,200<span class="unit"> / bag</span></div>
+                      <button class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card">
+                  <div class="product-image">🌱<span class="stock-pill low">12 left</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Fertilizers · Phosphate</div>
+                    <div class="product-name">DAP Fertilizer — 50kg</div>
+                    <div class="rating">★★★★☆ <span class="text-muted" style="font-size:0.75rem;">(4.3)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 11,500<span class="unit"> / bag</span></div>
+                      <button class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card">
+                  <div class="product-image">🌿<span class="stock-pill in">120 in stock</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Fertilizers · Organic</div>
+                    <div class="product-name">Compost Mix — 25kg</div>
+                    <div class="rating">★★★★★ <span class="text-muted" style="font-size:0.75rem;">(4.9)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 1,800<span class="unit"> / bag</span></div>
+                      <button class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card">
+                  <div class="product-image">🌽<span class="stock-pill in">450 in stock</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Seeds · Hybrid</div>
+                    <div class="product-name">Hybrid Maize Seed — 5kg</div>
+                    <div class="rating">★★★★☆ <span class="text-muted" style="font-size:0.75rem;">(4.4)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 3,200<span class="unit"> / pack</span></div>
+                      <button class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card">
+                  <div class="product-image">🧪<span class="stock-pill out">Out of stock</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Pesticides</div>
+                    <div class="product-name">Insecticide Spray — 1L</div>
+                    <div class="rating">★★★★☆ <span class="text-muted" style="font-size:0.75rem;">(4.1)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 950<span class="unit"> / bottle</span></div>
+                      <button class="btn btn-outline btn-sm" disabled style="opacity:0.5;">Notify</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="product-card">
+                  <div class="product-image">💧<span class="stock-pill in">68 in stock</span></div>
+                  <div class="product-body">
+                    <div class="product-cat">Irrigation</div>
+                    <div class="product-name">Drip Tape — 100m</div>
+                    <div class="rating">★★★★★ <span class="text-muted" style="font-size:0.75rem;">(4.7)</span></div>
+                    <div class="product-meta">
+                      <div class="product-price">Rs 2,400<span class="unit"> / roll</span></div>
+                      <button class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side: Recent Orders -->
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Recent Orders</h3>
+              <a href="#" style="color:var(--primary);font-size:0.85rem;font-weight:600;">View all</a>
+            </div>
+            <div style="padding:0;">
+              <table class="table">
+                <thead>
+                  <tr><th>Order</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600;">#ORD-1042</div>
+                      <div class="text-muted" style="font-size:0.78rem;">Urea × 4 · Rs 16,800</div>
+                    </td>
+                    <td><span class="status delivered">Delivered</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600;">#ORD-1041</div>
+                      <div class="text-muted" style="font-size:0.78rem;">DAP × 2 · Rs 23,000</div>
+                    </td>
+                    <td><span class="status shipped">Shipped</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600;">#ORD-1039</div>
+                      <div class="text-muted" style="font-size:0.78rem;">Compost × 6 · Rs 10,800</div>
+                    </td>
+                    <td><span class="status confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600;">#ORD-1037</div>
+                      <div class="text-muted" style="font-size:0.78rem;">Maize seed × 3 · Rs 9,600</div>
+                    </td>
+                    <td><span class="status pending">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600;">#ORD-1031</div>
+                      <div class="text-muted" style="font-size:0.78rem;">Drip tape × 1 · Rs 2,400</div>
+                    </td>
+                    <td><span class="status cancelled">Cancelled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplier Dashboard — AgriFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="dash-wrap">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C7 12 4 9 4 4c5 0 8 3 8 8z"/><path d="M12 12c5 0 8-3 8-8-5 0-8 3-8 8z"/></svg>
+        </span>
+        AgriFlow
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="#" class="sidebar-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+          Overview
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7L12 12l8.7-5"/><path d="M12 22V12"/></svg>
+          Inventory
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          Orders
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg>
+          Sales Analytics
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          Reviews
+        </a>
+
+        <div class="sidebar-section-label" style="margin-top:1.5rem;">Account</div>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+          Company
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar" data-session-initial>S</div>
+          <div>
+            <div class="name" data-session-name>Supplier</div>
+            <div class="role" data-session-role>Supplier</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-block" data-logout style="color:rgba(255,255,255,0.85);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          Sign out
+        </button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>Supplier Overview</h1>
+          <div class="greet">Hi <span data-session-name>Supplier</span> — here's how your business is performing.</div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center;">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input placeholder="Search orders, products..." />
+          </div>
+          <button class="btn btn-primary btn-sm" data-modal-open="addProductModal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            Add Product
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Stat cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value">Rs 1.24M</div>
+                <div class="stat-trend up">▲ 18.2% vs last month</div>
+              </div>
+              <div class="stat-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Pending Orders</div>
+                <div class="stat-value">23</div>
+                <div class="stat-trend up">▲ 5 new today</div>
+              </div>
+              <div class="stat-icon gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h6l2 4h10v12H3z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Products Listed</div>
+                <div class="stat-value">42</div>
+                <div class="stat-trend up">▲ 3 added this week</div>
+              </div>
+              <div class="stat-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Low Stock Alerts</div>
+                <div class="stat-value">7</div>
+                <div class="stat-trend down">Needs reorder</div>
+              </div>
+              <div class="stat-icon red">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales chart + Top products -->
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3>Sales Trend</h3>
+                <div class="text-muted" style="font-size:0.85rem;">Last 12 weeks · powered by SUM() & GROUP BY</div>
+              </div>
+              <select class="form-select" style="width:auto;padding:0.5rem 0.75rem;">
+                <option>Revenue</option>
+                <option>Orders</option>
+                <option>Units</option>
+              </select>
+            </div>
+            <div class="panel-body">
+              <div class="chart">
+                <div class="chart-bar" style="height:35%;" data-label="W1"></div>
+                <div class="chart-bar" style="height:50%;" data-label="W2"></div>
+                <div class="chart-bar" style="height:42%;" data-label="W3"></div>
+                <div class="chart-bar" style="height:62%;" data-label="W4"></div>
+                <div class="chart-bar" style="height:55%;" data-label="W5"></div>
+                <div class="chart-bar" style="height:70%;" data-label="W6"></div>
+                <div class="chart-bar" style="height:65%;" data-label="W7"></div>
+                <div class="chart-bar" style="height:80%;" data-label="W8"></div>
+                <div class="chart-bar" style="height:72%;" data-label="W9"></div>
+                <div class="chart-bar" style="height:88%;" data-label="W10"></div>
+                <div class="chart-bar" style="height:95%;" data-label="W11"></div>
+                <div class="chart-bar" style="height:100%;" data-label="W12"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Top Products</h3>
+              <a href="#" style="color:var(--primary);font-size:0.85rem;font-weight:600;">Full report</a>
+            </div>
+            <div class="panel-body" style="padding:0.5rem 0;">
+              <div style="display:flex;flex-direction:column;">
+                <div style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);">
+                  <div style="width:40px;height:40px;background:rgba(212,163,115,0.18);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;">🌾</div>
+                  <div style="flex:1;">
+                    <div style="font-weight:600;font-size:0.92rem;">Urea Fertilizer</div>
+                    <div class="text-muted" style="font-size:0.78rem;">412 sold · Rs 1.73M</div>
+                  </div>
+                  <span style="font-weight:700;color:var(--success);">↑</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);">
+                  <div style="width:40px;height:40px;background:rgba(212,163,115,0.18);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;">🌱</div>
+                  <div style="flex:1;">
+                    <div style="font-weight:600;font-size:0.92rem;">DAP Fertilizer</div>
+                    <div class="text-muted" style="font-size:0.78rem;">198 sold · Rs 2.27M</div>
+                  </div>
+                  <span style="font-weight:700;color:var(--success);">↑</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);">
+                  <div style="width:40px;height:40px;background:rgba(212,163,115,0.18);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;">🌽</div>
+                  <div style="flex:1;">
+                    <div style="font-weight:600;font-size:0.92rem;">Hybrid Maize Seed</div>
+                    <div class="text-muted" style="font-size:0.78rem;">145 sold · Rs 464K</div>
+                  </div>
+                  <span style="font-weight:700;color:var(--success);">↑</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;">
+                  <div style="width:40px;height:40px;background:rgba(212,163,115,0.18);border-radius:10px;display:grid;place-items:center;font-size:1.2rem;">💧</div>
+                  <div style="flex:1;">
+                    <div style="font-weight:600;font-size:0.92rem;">Drip Irrigation Tape</div>
+                    <div class="text-muted" style="font-size:0.78rem;">98 sold · Rs 235K</div>
+                  </div>
+                  <span style="font-weight:700;color:var(--danger);">↓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Incoming orders + Inventory -->
+        <div class="panel mt-2">
+          <div class="panel-head">
+            <h3>Incoming Orders</h3>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="btn btn-ghost btn-sm">All</button>
+              <button class="btn btn-ghost btn-sm">Pending</button>
+              <button class="btn btn-ghost btn-sm">Confirmed</button>
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Farmer</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#ORD-1042</strong></td>
+                <td>Asad Khan</td>
+                <td>Urea (50kg)</td>
+                <td>4 bags</td>
+                <td>Rs 16,800</td>
+                <td><span class="status pending">Pending</span></td>
+                <td><button class="btn btn-primary btn-sm">Confirm</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-1041</strong></td>
+                <td>Bilal Ahmed</td>
+                <td>DAP (50kg)</td>
+                <td>2 bags</td>
+                <td>Rs 23,000</td>
+                <td><span class="status confirmed">Confirmed</span></td>
+                <td><button class="btn btn-outline btn-sm">Ship</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-1040</strong></td>
+                <td>Sara Mehmood</td>
+                <td>Compost (25kg)</td>
+                <td>6 bags</td>
+                <td>Rs 10,800</td>
+                <td><span class="status shipped">Shipped</span></td>
+                <td><button class="btn btn-ghost btn-sm">Track</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-1039</strong></td>
+                <td>Imran Ali</td>
+                <td>Maize Seed (5kg)</td>
+                <td>3 packs</td>
+                <td>Rs 9,600</td>
+                <td><span class="status delivered">Delivered</span></td>
+                <td><button class="btn btn-ghost btn-sm">Receipt</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ORD-1038</strong></td>
+                <td>Ayesha Tariq</td>
+                <td>Drip Tape (100m)</td>
+                <td>1 roll</td>
+                <td>Rs 2,400</td>
+                <td><span class="status cancelled">Cancelled</span></td>
+                <td><button class="btn btn-ghost btn-sm">Details</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add product modal -->
+  <div class="modal-backdrop" id="addProductModal">
+    <div class="modal">
+      <h3>Add new product</h3>
+      <form>
+        <div class="form-group">
+          <label>Product name</label>
+          <input class="form-input" placeholder="e.g. Urea (46% N) — 50kg bag" />
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select class="form-select">
+            <option>Fertilizers</option>
+            <option>Pesticides</option>
+            <option>Seeds</option>
+            <option>Farm Tools</option>
+            <option>Irrigation</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label>Unit price (Rs)</label>
+            <input class="form-input" type="number" placeholder="4200" />
+          </div>
+          <div class="form-group">
+            <label>Stock quantity</label>
+            <input class="form-input" type="number" placeholder="200" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-textarea" placeholder="Specifications, NPK ratio, usage..."></textarea>
+        </div>
+        <div style="display:flex;gap:0.75rem;justify-content:flex-end;">
+          <button type="button" class="btn btn-ghost" data-modal-close="addProductModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

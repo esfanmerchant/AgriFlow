@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — AgriFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="dash-wrap">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C7 12 4 9 4 4c5 0 8 3 8 8z"/><path d="M12 12c5 0 8-3 8-8-5 0-8 3-8 8z"/></svg>
+        </span>
+        AgriFlow
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">System</div>
+        <a href="#" class="sidebar-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+          Overview
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+          Users
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2M16 3.13a4 4 0 010 7.75M9 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+          Suppliers
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/></svg>
+          Products
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h6l2 4h10v12H3z"/></svg>
+          Orders
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
+          Payments
+        </a>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          Audit Logs
+        </a>
+
+        <div class="sidebar-section-label" style="margin-top:1.5rem;">Account</div>
+        <a href="#" class="sidebar-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar" data-session-initial>A</div>
+          <div>
+            <div class="name" data-session-name>Admin</div>
+            <div class="role" data-session-role>Admin</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-block" data-logout style="color:rgba(255,255,255,0.85);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+          Sign out
+        </button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1>System Overview</h1>
+          <div class="greet">All-system pulse for the AgriFlow platform.</div>
+        </div>
+        <div style="display:flex;gap:0.75rem;align-items:center;">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input placeholder="Search users, orders, transactions..." />
+          </div>
+          <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><span class="badge-dot"></span></button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- KPI cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Total Users</div>
+                <div class="stat-value">1,287</div>
+                <div class="stat-trend up">▲ 42 this week</div>
+              </div>
+              <div class="stat-icon green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Active Suppliers</div>
+                <div class="stat-value">85</div>
+                <div class="stat-trend up">▲ 6 this month</div>
+              </div>
+              <div class="stat-icon blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Platform GMV</div>
+                <div class="stat-value">Rs 18.4M</div>
+                <div class="stat-trend up">▲ 22.7% MoM</div>
+              </div>
+              <div class="stat-icon gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-head">
+              <div>
+                <div class="stat-label">Failed Transactions</div>
+                <div class="stat-value">3</div>
+                <div class="stat-trend down">Auto-rolled back</div>
+              </div>
+              <div class="stat-icon red">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Users management -->
+        <div class="panel mb-2">
+          <div class="panel-head">
+            <h3>User Management</h3>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <select class="form-select" style="width:auto;padding:0.5rem 0.75rem;">
+                <option>All roles</option>
+                <option>Farmers</option>
+                <option>Suppliers</option>
+                <option>Admins</option>
+              </select>
+              <button class="btn btn-primary btn-sm">+ Add user</button>
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Joined</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.65rem;">
+                    <div class="avatar" style="width:34px;height:34px;font-size:0.85rem;">AK</div>
+                    <strong>Asad Khan</strong>
+                  </div>
+                </td>
+                <td>asad@farm.pk</td>
+                <td><span class="status confirmed">Farmer</span></td>
+                <td>2026-04-12</td>
+                <td><span class="status delivered">Active</span></td>
+                <td>
+                  <button class="btn btn-ghost btn-sm">Edit</button>
+                  <button class="btn btn-ghost btn-sm" style="color:var(--danger);">Suspend</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.65rem;">
+                    <div class="avatar" style="width:34px;height:34px;font-size:0.85rem;background:var(--primary-light);color:white;">FF</div>
+                    <strong>Fauji Fertilizer Co.</strong>
+                  </div>
+                </td>
+                <td>contact@ffc.com.pk</td>
+                <td><span class="status shipped">Supplier</span></td>
+                <td>2026-01-08</td>
+                <td><span class="status delivered">Active</span></td>
+                <td>
+                  <button class="btn btn-ghost btn-sm">Edit</button>
+                  <button class="btn btn-ghost btn-sm" style="color:var(--danger);">Suspend</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.65rem;">
+                    <div class="avatar" style="width:34px;height:34px;font-size:0.85rem;">SM</div>
+                    <strong>Sara Mehmood</strong>
+                  </div>
+                </td>
+                <td>sara.m@gmail.com</td>
+                <td><span class="status confirmed">Farmer</span></td>
+                <td>2026-04-25</td>
+                <td><span class="status delivered">Active</span></td>
+                <td>
+                  <button class="btn btn-ghost btn-sm">Edit</button>
+                  <button class="btn btn-ghost btn-sm" style="color:var(--danger);">Suspend</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.65rem;">
+                    <div class="avatar" style="width:34px;height:34px;font-size:0.85rem;background:var(--primary-light);color:white;">EN</div>
+                    <strong>Engro AgriTech</strong>
+                  </div>
+                </td>
+                <td>sales@engro.com</td>
+                <td><span class="status shipped">Supplier</span></td>
+                <td>2026-02-19</td>
+                <td><span class="status pending">Pending KYC</span></td>
+                <td>
+                  <button class="btn btn-primary btn-sm">Review</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.65rem;">
+                    <div class="avatar" style="width:34px;height:34px;font-size:0.85rem;">IA</div>
+                    <strong>Imran Ali</strong>
+                  </div>
+                </td>
+                <td>imran.a@yahoo.com</td>
+                <td><span class="status confirmed">Farmer</span></td>
+                <td>2026-03-30</td>
+                <td><span class="status cancelled">Suspended</span></td>
+                <td>
+                  <button class="btn btn-outline btn-sm">Reactivate</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Audit logs + Recent payments -->
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Audit Log</h3>
+              <a href="#" style="color:var(--primary);font-size:0.85rem;font-weight:600;">Export CSV</a>
+            </div>
+            <div style="padding:0;">
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;">
+                  <strong>Order #ORD-1042 placed</strong>
+                  <span class="text-muted" style="font-size:0.78rem;">2 min ago</span>
+                </div>
+                <div class="text-muted" style="font-size:0.82rem;margin-top:0.25rem;">Asad Khan → FFC · Transaction COMMIT successful</div>
+              </div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;">
+                  <strong>Payment failed — ROLLBACK triggered</strong>
+                  <span class="text-muted" style="font-size:0.78rem;">14 min ago</span>
+                </div>
+                <div class="text-muted" style="font-size:0.82rem;margin-top:0.25rem;">Order #ORD-1040 · Inventory restored to original state</div>
+              </div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;">
+                  <strong>New supplier registered</strong>
+                  <span class="text-muted" style="font-size:0.78rem;">1 h ago</span>
+                </div>
+                <div class="text-muted" style="font-size:0.82rem;margin-top:0.25rem;">Engro AgriTech awaiting KYC verification</div>
+              </div>
+              <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--border);">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;">
+                  <strong>Stock reorder threshold hit</strong>
+                  <span class="text-muted" style="font-size:0.78rem;">2 h ago</span>
+                </div>
+                <div class="text-muted" style="font-size:0.82rem;margin-top:0.25rem;">DAP Fertilizer — 12 units remaining (reorder at 20)</div>
+              </div>
+              <div style="padding:1rem 1.5rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;">
+                  <strong>User suspended</strong>
+                  <span class="text-muted" style="font-size:0.78rem;">5 h ago</span>
+                </div>
+                <div class="text-muted" style="font-size:0.82rem;margin-top:0.25rem;">Imran Ali — repeated payment failures</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Recent Payments</h3>
+            </div>
+            <div style="padding:0;">
+              <table class="table">
+                <thead>
+                  <tr><th>Txn</th><th>Amount</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>#PAY-558</strong><div class="text-muted" style="font-size:0.75rem;">Bank transfer</div></td><td>Rs 16,800</td><td><span class="status success">Success</span></td></tr>
+                  <tr><td><strong>#PAY-557</strong><div class="text-muted" style="font-size:0.75rem;">Mobile wallet</div></td><td>Rs 23,000</td><td><span class="status success">Success</span></td></tr>
+                  <tr><td><strong>#PAY-556</strong><div class="text-muted" style="font-size:0.75rem;">Card</div></td><td>Rs 10,800</td><td><span class="status success">Success</span></td></tr>
+                  <tr><td><strong>#PAY-555</strong><div class="text-muted" style="font-size:0.75rem;">Card</div></td><td>Rs 9,600</td><td><span class="status failed">Failed</span></td></tr>
+                  <tr><td><strong>#PAY-554</strong><div class="text-muted" style="font-size:0.75rem;">Cash</div></td><td>Rs 2,400</td><td><span class="status pending">Pending</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

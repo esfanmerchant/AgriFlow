@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body, #root { min-height: 100%; width: 100%; }
+
+/* `overflow-x: clip` is the modern way to prevent sideways scroll without
+   creating a scroll container or fighting iOS Safari's viewport-fit:cover.
+   Falls back to overflow-x:hidden for older browsers. NO max-width: 100vw —
+   it conflicts with safe-area insets on notched devices and pulls the page
+   inward. The clip alone is sufficient. */
+html {
+  background: #06120c;
+  overflow-x: clip;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #06120c;
+  color: #f6f3ee;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+}
+
+#root { overflow-x: clip; }
+
+/* legacy fallback for browsers that don't support overflow: clip (pre-2022) */
+@supports not (overflow: clip) {
+  html, body, #root { overflow-x: hidden; }
+}
+
+/* Note: do NOT set `isolation: isolate` on #root — it creates a stacking
+   context that traps fixed-position siblings like CursorBlob below
+   anything portaled to <body> (Select dropdowns, etc.). The body bg
+   already covers the viewport during route swaps, so isolation isn't needed. */
+#root { background: transparent; }
+
+/* Custom cursor activates only after JS adds .cursor-on, preventing a brief
+   "missing cursor" moment during initial load. */
+body.cursor-on,
+body.cursor-on input, body.cursor-on textarea, body.cursor-on select,
+body.cursor-on button, body.cursor-on a { cursor: none; }
+@media (max-width: 1024px), (pointer: coarse) {
+  body.cursor-on,
+  body.cursor-on input, body.cursor-on textarea, body.cursor-on select,
+  body.cursor-on button, body.cursor-on a { cursor: auto; }
+}
+
+::selection { background: rgba(45,212,191,0.35); color: #f6f3ee; }
+
+/* Native <select> fallback: hint browsers to use dark UI for option panel */
+select { color-scheme: dark; }
+select option {
+  background: #0f2a1f;
+  color: #f6f3ee;
+}
+
+/* ---------- A11y: focus visible (soft, only for keyboard nav) ---------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid rgba(94, 234, 212, 0.55);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible,
+a:focus-visible, .skip-link:focus-visible {
+  outline: none;
+}
+
+/* Skip link — visible only when focused */
+.skip-link {
+  position: fixed; top: -100px; left: 50%; transform: translateX(-50%);
+  z-index: 10000;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg,#5eead4,#2dd4bf 50%,#0d9488);
+  color: #06120c;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(45,212,191,0.45);
+  transition: top 0.18s ease-out;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #06120c; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #14b8a6, #52b788);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
+@media (max-width: 640px) {
+  ::-webkit-scrollbar { width: 0; height: 0; }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Glassmorphism ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.glass-dark {
+  background: rgba(8, 26, 19, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(45, 212, 191, 0.12);
+}
+
+/* ---------- Animated mesh background ---------- */
+.mesh-bg {
+  position: fixed; inset: 0; z-index: -2;
+  background:
+    radial-gradient(at 25% 20%, rgba(20,184,166,0.18) 0px, transparent 55%),
+    radial-gradient(at 80% 5%,  rgba(212,163,115,0.12) 0px, transparent 55%),
+    radial-gradient(at 0% 80%,  rgba(45,106,79,0.35) 0px, transparent 55%),
+    radial-gradient(at 80% 75%, rgba(20,184,166,0.10) 0px, transparent 55%),
+    #06120c;
+  background-size: 200% 200%;
+  animation: gradientShift 18s ease infinite;
+}
+.mesh-bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0%, rgba(6,18,12,0.55) 100%);
+  pointer-events: none;
+}
+@keyframes gradientShift {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+
+/* big floating blobs — must clip to host so 480px pseudo-elements don't
+   escape and cause horizontal page overflow on mobile. */
+.bg-blobs { position: relative; overflow: hidden; }
+.bg-blobs::before, .bg-blobs::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+.bg-blobs::before {
+  top: 10%; left: -10%;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, #2dd4bf, transparent 60%);
+  animation: blob 20s ease-in-out infinite;
+}
+.bg-blobs::after {
+  bottom: -10%; right: -10%;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, #d4a373, transparent 60%);
+  animation: blob 22s ease-in-out infinite reverse;
+}
+@keyframes blob {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(40px,-50px) scale(1.1); }
+  66%     { transform: translate(-30px,40px) scale(0.95); }
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+  background: linear-gradient(120deg, #5eead4 0%, #2dd4bf 35%, #d4a373 75%, #faedcd 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-gradient-mint {
+  background: linear-gradient(120deg, #5eead4 0%, #14b8a6 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-stroke {
+  -webkit-text-stroke: 2px rgba(94,234,212,0.85);
+  color: transparent;
+}
+
+/* ---------- Buttons / shimmer ---------- */
+.shimmer {
+  background: linear-gradient(110deg, #0d9488 30%, #2dd4bf 50%, #0d9488 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+@layer components {
+  .btn-mint {
+    @apply inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-bold text-ink transition text-sm sm:text-base;
+    background: linear-gradient(135deg, #5eead4, #2dd4bf 50%, #0d9488);
+    box-shadow: 0 10px 30px rgba(45,212,191,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  .btn-mint:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(45,212,191,0.55); }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-semibold text-cream border border-white/15 hover:bg-white/5 transition text-sm sm:text-base;
+  }
+}
+
+/* ---------- Glow ring ---------- */
+.ring-glow {
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,0.30),
+    0 0 40px rgba(45,212,191,0.30),
+    0 0 80px rgba(212,163,115,0.18);
+}
+
+/* ---------- Magnetic / hover lift ---------- */
+.lift { transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.4s; }
+.lift:hover { transform: translateY(-6px); }
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 35s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Inputs ---------- */
+@layer components {
+  .input {
+    @apply w-full pl-4 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-cream placeholder:text-cream/40 focus:outline-none focus:border-mint-400 focus:ring-2 focus:ring-mint-400/30 transition;
+  }
+  .label { @apply block text-sm font-medium text-cream/80 mb-2; }
+
+  /* ---------- Status pill ---------- */
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+  .pill::before {
+    content: ""; width: 6px; height: 6px; border-radius: 9999px; background: currentColor;
+  }
+}
+
+/* ---------- Animated gradient border card ---------- */
+.gradient-border {
+  position: relative;
+  border-radius: 1.25rem;
+  background: rgba(8,26,19,0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, #2dd4bf, #d4a373, #52b788, #2dd4bf);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: gradientShift 6s linear infinite;
+  pointer-events: none;
+}
+
+/* ---------- Cursor blob ---------- */
+/* Rendered via React portal to <body> so it always sits above other portals
+   (Select dropdowns, modals, etc.). No mix-blend-mode — that washes out
+   over backdrop-blurred surfaces. Pure rendered color is more reliable. */
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 10500;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot {
+  width: 10px; height: 10px;
+  background: #5eead4;
+  box-shadow: 0 0 16px #2dd4bf, 0 0 32px rgba(45,212,191,0.6);
+}
+.cursor-ring {
+  width: 38px; height: 38px;
+  border: 1.5px solid rgba(94,234,212,0.85);
+  background: transparent;
+  transition: width 0.18s ease, height 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+@media (max-width: 1024px), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 3px; z-index: 100;
+  background: linear-gradient(90deg, #5eead4, #2dd4bf, #d4a373);
+  transform-origin: 0 50%;
+  box-shadow: 0 0 10px rgba(45,212,191,0.6);
+}
+
+/* ---------- Section padding (responsive) ---------- */
+.section-pad { padding: 4rem 0; }
+@media (min-width: 640px)  { .section-pad { padding: 5rem 0; } }
+@media (min-width: 1024px) { .section-pad { padding: 7rem 0; } }
+
+/* ---------- Below-the-fold sections: skip paint/layout off-screen ---------- */
+/* `content-visibility: auto` lets the browser skip rendering work until the
+   section scrolls near viewport. `contain-intrinsic-size` reserves space so
+   the scrollbar doesn't jump. Massive first-paint win. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* ---------- Card 3d ---------- */
+.card-3d { transform-style: preserve-3d; perspective: 1000px; }
+
+/* ---------- Big text outline ---------- */
+.outline-text {
+  -webkit-text-stroke: 2px rgba(94,234,212,0.4);
+  color: transparent;
+}
+
+/* ---------- Tilt grid ---------- */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(94,234,212,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ---------- Floating tag chip ---------- */
+@layer components {
+  .chip {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs font-semibold text-mint-200;
+  }
+}

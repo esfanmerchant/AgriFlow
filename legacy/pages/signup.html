@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account — AgriFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <aside class="auth-side">
+      <a href="../index.html" class="auth-brand">
+        <span class="auth-brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C7 12 4 9 4 4c5 0 8 3 8 8z"/><path d="M12 12c5 0 8-3 8-8-5 0-8 3-8 8z"/></svg>
+        </span>
+        AgriFlow
+      </a>
+
+      <div class="auth-hero">
+        <h1>Join the network rewriting agri-procurement.</h1>
+        <p>Create an account in under a minute. Browse fertilizers, seeds, and tools — or list your own and reach thousands of farmers.</p>
+
+        <div class="auth-stats">
+          <div class="auth-stat">
+            <div class="num">9</div>
+            <div class="label">DB tables</div>
+          </div>
+          <div class="auth-stat">
+            <div class="num">3</div>
+            <div class="label">User roles</div>
+          </div>
+          <div class="auth-stat">
+            <div class="num">100%</div>
+            <div class="label">ACID safe</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="opacity:0.75;font-size:0.85rem;">
+        Already a member? <a href="login.html" style="color:white;text-decoration:underline;">Sign in →</a>
+      </div>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card fade-up">
+        <h2>Create your account</h2>
+        <p class="sub">Pick the role that fits you best — you can extend later.</p>
+
+        <form id="signupForm">
+          <div class="form-group">
+            <label>Account type</label>
+            <div class="role-picker">
+              <div class="role-card active" data-role="farmer">
+                <div class="role-icon">🌾</div>
+                <div class="role-name">Farmer</div>
+              </div>
+              <div class="role-card" data-role="supplier">
+                <div class="role-icon">🏭</div>
+                <div class="role-name">Supplier</div>
+              </div>
+              <div class="role-card" data-role="admin">
+                <div class="role-icon">🛡️</div>
+                <div class="role-name">Admin</div>
+              </div>
+            </div>
+            <input type="hidden" id="role" name="role" value="farmer" />
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full name</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>
+              </span>
+              <input type="text" id="fullName" class="form-input" placeholder="Asad Khan" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              </span>
+              <input type="email" id="email" class="form-input" placeholder="you@farm.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 01-1.1 1A19 19 0 012 4.1 1 1 0 013 3h4.09a1 1 0 011 .75l1 4a1 1 0 01-.27 1L7.21 10.2a16 16 0 006.59 6.59l1.45-1.61a1 1 0 011-.27l4 1a1 1 0 01.75 1z"/></svg>
+              </span>
+              <input type="tel" id="phone" class="form-input" placeholder="+92 300 1234567" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+              </span>
+              <input type="password" id="password" class="form-input" placeholder="At least 8 characters" required />
+            </div>
+          </div>
+
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.25rem;">
+            By creating an account, you agree to AgriFlow's <a href="#" style="color:var(--primary);">Terms</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>.
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Create account</button>
+        </form>
+
+        <div class="auth-footer-link">
+          Already have an account? <a href="login.html">Sign in</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
