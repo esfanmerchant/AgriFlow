@@ -345,3 +345,30 @@ a:focus-visible, .skip-link:focus-visible {
     @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs font-semibold text-mint-200;
   }
 }
+
+/* ---------- Responsive table cells ----------
+   All dashboard tables already wrap in overflow-x-auto, so they scroll
+   horizontally on phones. This rule tightens the cell padding below sm so
+   more columns fit before scrolling kicks in. */
+@media (max-width: 639px) {
+  table th, table td {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    font-size: 0.8125rem;
+  }
+  table th { font-size: 0.625rem; }
+}
+
+/* ---------- iOS form-zoom prevention ----------
+   iOS Safari zooms into inputs whose font-size is < 16px. We use 14px (text-sm)
+   in a lot of places; force 16px on small screens for inputs/selects/textareas
+   so the page doesn't zoom on focus. */
+@media (max-width: 768px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}

@@ -38,7 +38,11 @@ export default function Login() {
     try {
       await login({ email, password, role });
     } catch (err) {
-      toast.error('Sign-in failed', err?.message || 'Try again in a moment.');
+      if (/Approval Pending/i.test(err?.message || '')) {
+        toast.error('Verification/Approval Pending', 'An admin must approve your supplier account before you can sign in.');
+      } else {
+        toast.error('Sign-in failed', err?.message || 'Try again in a moment.');
+      }
     } finally {
       setLoading(false);
     }

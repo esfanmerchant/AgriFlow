@@ -7,7 +7,7 @@ export default function Topbar({ title, subtitle, action }) {
     <div className="gradient-border px-4 sm:px-6 py-3 sm:py-4 mb-4 sm:mb-6 flex items-center justify-between gap-3">
       <div className="min-w-0 flex-1">
         <h1 className="font-display text-lg sm:text-xl md:text-2xl font-extrabold text-cream truncate">
-          {title || <>Welcome back, <span className="text-gradient-mint">{user?.name || 'User'}</span> 👋</>}
+          {title || <>Welcome back, <span className="text-gradient-mint">{user?.full_name || 'User'}</span> 👋</>}
         </h1>
         {subtitle && <p className="hidden sm:block text-xs sm:text-sm text-cream/60 mt-0.5 truncate">{subtitle}</p>}
       </div>

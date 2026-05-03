@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion';
 
-const roles = [
+const ALL_ROLES = [
   { key: 'farmer',   label: 'Farmer',   icon: '🌾' },
   { key: 'supplier', label: 'Supplier', icon: '🏭' },
   { key: 'admin',    label: 'Admin',    icon: '🛡️' },
 ];
 
-export default function RolePicker({ value, onChange }) {
+// `includeAdmin` is true on the login page (admins still sign in) and false
+// on the signup page (admin accounts are issued internally, never self-served).
+export default function RolePicker({ value, onChange, includeAdmin = true }) {
+  const roles = includeAdmin ? ALL_ROLES : ALL_ROLES.filter((r) => r.key !== 'admin');
+  const cols = roles.length === 3 ? 'grid-cols-3' : 'grid-cols-2';
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className={`grid ${cols} gap-2`}>
       {roles.map((r) => {
         const active = value === r.key;
         return (

@@ -55,10 +55,10 @@ function SidebarContent({ items, active, onSelect, user, logout, onClose }) {
       <div className="px-3 py-3 border-t border-white/10">
         <div className="flex items-center gap-3 px-2 py-2">
           <div className="w-9 h-9 rounded-full bg-gradient-to-br from-mint-300 to-mint-600 grid place-items-center font-bold text-ink shrink-0">
-            {(user?.name || 'U')[0].toUpperCase()}
+            {(user?.full_name || 'U')[0].toUpperCase()}
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-semibold text-cream truncate">{user?.name || 'User'}</div>
+            <div className="text-sm font-semibold text-cream truncate">{user?.full_name || 'User'}</div>
             <div className="text-[11px] text-cream/50 truncate">{user?.email || ''}</div>
           </div>
         </div>

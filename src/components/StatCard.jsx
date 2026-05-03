@@ -4,19 +4,24 @@ import TiltCard from './three/TiltCard.jsx';
 
 function CountUp({ to = 0, prefix = '', suffix = '', duration = 1.2 }) {
   const [val, setVal] = useState(0);
-  const startedRef = useRef(false);
+  const fromRef = useRef(0);
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
+    const from = fromRef.current;
+    if (from === to) return;
     const start = performance.now();
+    let raf;
     const tick = (now) => {
       const t = Math.min(1, (now - start) / (duration * 1000));
       const eased = 1 - Math.pow(1 - t, 3);
-      const display = typeof to === 'number' && to < 100 ? eased * to : Math.floor(eased * to);
-      setVal(display);
-      if (t < 1) requestAnimationFrame(tick);
+      setVal(from + (to - from) * eased);
+      if (t < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        fromRef.current = to;
+      }
     };
-    requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [to, duration]);
   const display = typeof to === 'number' && to < 100 && to !== Math.floor(to)
     ? val.toFixed(1)

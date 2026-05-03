@@ -44,7 +44,13 @@ export default function Signup() {
     try {
       await signup(form);
     } catch (err) {
-      toast.error('Sign-up failed', err?.message || 'Try again in a moment.');
+      // Backend returns 202 with a "Verification/Approval Pending" message
+      // for new supplier signups — show it as info, not as a hard failure.
+      if (err?.status === 202 || /Approval Pending/i.test(err?.message || '')) {
+        toast.success('Account submitted', err.message);
+      } else {
+        toast.error('Sign-up failed', err?.message || 'Try again in a moment.');
+      }
     } finally {
       setLoading(false);
     }
@@ -71,7 +77,7 @@ export default function Signup() {
       <form onSubmit={onSubmit} className="mt-7 space-y-5" noValidate>
         <div>
           <label className="label">Account type</label>
-          <RolePicker value={form.role} onChange={(r) => setForm({ ...form, role: r })} />
+          <RolePicker value={form.role} onChange={(r) => setForm({ ...form, role: r })} includeAdmin={false} />
         </div>
 
         <div>
